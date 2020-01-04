@@ -9,9 +9,12 @@ while True:
     if guess == 'q':
         print('Number was {}'.format(x))
         break
-    elif int(guess) == x:
+    if int(guess) == x:
         print('You won!')
         break
+    elif int(guess) > x:
+        print('Too big')
     else:
-        print('Wrong')
+        print('Too small')
+
 
