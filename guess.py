@@ -7,26 +7,28 @@ tries = 0
 
 while count > 0:
 
-    print('Press q to quit')
+    print('Press letter to quit')
     guess = input('Guess a number from 1 to 100: ')
+    try:
+        val = int(guess)
 
-    if guess == 'q':  # Quit the game if user types q
-        print('Number was {}'.format(x))
+        if val == x:
+            print('You won! Took you  {} of tries'.format(tries))
+            break
+        elif val > x:
+            count -= 1
+            tries += 1
+            print('Too big - {} of tries left'.format(count))
+        else:
+            count -= 1
+            tries += 1
+            print('Too small - {} of tries left'.format(count))
+
+        if count == 0:
+            print('You lose')
+    except ValueError:
+        print('Input was not an integer')
         break
 
-    if int(guess) == x:
-        print('You won! Took you  {} of tries'.format(tries))
-        break
-    elif int(guess) > x:
-        count -= 1
-        tries += 1
-        print('Too big - {} of tries left'.format(count))
-    else:
-        count -= 1
-        tries += 1
-        print('Too small - {} of tries left'.format(count))
-
-    if count == 0:
-        print('You lose')
 
 
